@@ -107,23 +107,15 @@
     			delete
     		</v-icon>
     	</v-btn>
-    </div>	
+    </div>
+    	
   </v-container>
 </template>
 
 <script>
   export default {
     data: () => ({
-      tasks: [
-        {
-          done: false,
-          text: 'Javascript'
-        },
-        {
-          done: false,
-          text: 'Vue.js'
-        }
-      ],
+      tasks: JSON.parse(localStorage.tasks),
       task: null
     }),
 
@@ -147,13 +139,21 @@
         })
 
         this.task = null
+        localStorage.setItem('tasks', JSON.stringify(this.tasks));
       },
 
       deleteLastTask() {
       	this.tasks.pop();
+        localStorage.setItem('tasks', JSON.stringify(this.tasks));
       },
+
       deleteCompletedTask() {
-      	}
+        this.tasks = this.tasks.filter(task => !task.done);
+        localStorage.setItem('tasks', JSON.stringify(this.tasks));
+      },
+      saveToLocalStorage(arrayToSave) {
+        localStorage.setItem('tasks', JSON.stringify(arrayToSave));
+      }
     }
   }
 </script>
