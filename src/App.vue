@@ -3,7 +3,7 @@
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
         <v-icon large color="red">fas fa-list</v-icon>
-        <span class="font-weight-light">Create your own TODOS list</span>
+        <span class="font-weight-light">Api filter</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
@@ -14,21 +14,20 @@
         <span class="mr-2">Contact the author</span>
       </v-btn>
     </v-toolbar>
-
     <v-content>
-      <TodosComponent/>
+      <MainComponent/>
     </v-content>
   </v-app>
 </template>
 
 <script>
 
-import TodosComponent from './components/TodosComponent'
+import MainComponent from './components/MainComponent'
 
 export default {
   name: 'App',
   components: {
-    TodosComponent
+    MainComponent
   },
   data () {
     return {
